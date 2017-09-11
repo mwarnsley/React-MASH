@@ -1,0 +1,106 @@
+.App {
+  text-align: center; }
+
+.App-header {
+  background: #4b0082;
+  border-bottom: 3px solid #222;
+  color: white; }
+
+.page-header {
+  margin: 0 40px 15px 20px; }
+  .page-header h1 {
+    font-size: 7em;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 0; }
+  .page-header .m {
+    color: #ff1493; }
+  .page-header .a {
+    color: #32cd32; }
+  .page-header .s {
+    color: #00bfff; }
+  .page-header .h {
+    color: #ff7f50; }
+
+.mash-description {
+  margin-bottom: 10px; }
+  .mash-description .m {
+    color: #ff1493;
+    font-size: 26px;
+    margin-right: 15px; }
+  .mash-description .a {
+    color: #32cd32;
+    font-size: 26px;
+    margin-right: 15px; }
+  .mash-description .s {
+    color: #00bfff;
+    font-size: 26px;
+    margin-right: 15px; }
+  .mash-description .h {
+    color: #ff7f50;
+    font-size: 26px;
+    margin-right: 15px; }
+
+.app-list-container {
+  margin: 50px auto 25px auto;
+  width: 350px; }
+
+.result-list-container {
+  margin: 50px 0;
+  width: 100%; }
+  .result-list-container .well {
+    background: #4b0082; }
+  .result-list-container .panel {
+    color: #4b0082; }
+  .result-list-container .result-header {
+    font-size: 30px;
+    font-weight: bold; }
+  .result-list-container .result-value {
+    font-size: 20px;
+    font-weight: 100; }
+
+.list-container {
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 0px 0px 20px rgba(0, 0, 0, 0.06);
+  -moz-box-shadow: 0px 0px 0px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 0px 0px 20px rgba(0, 0, 0, 0.06); }
+
+.list {
+  margin-bottom: 20px; }
+
+.list-title {
+  color: #32cd32;
+  margin-bottom: 20px; }
+
+.list-number {
+  color: #4b0082;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 10px;
+  position: relative;
+  top: 12px; }
+
+.list-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #4b0082;
+  border-radius: 0;
+  box-shadow: none;
+  color: #4b0082;
+  display: inline-block;
+  width: 80%; }
+  .list-input:focus {
+    outline: 0; }
+
+.btn-next {
+  background: #4b0082;
+  border: 1px solid #4b0082;
+  margin: 15px 0;
+  padding: 15px;
+  width: 150px; }
+
+.select-error {
+  color: red;
+  margin-top: 10px; }

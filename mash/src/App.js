@@ -44,44 +44,51 @@ class App extends Component {
   }
   calculateFinalResults() {
     const {questions, selectedNumber} = this.props;
-    // Add all of the total questions to an array
-    const totalQuestionAnswers = [
-      ...questions[0].inputs,
-      ...questions[1].inputs,
-      ...questions[2].inputs,
-      ...questions[3].inputs,
-      ...questions[4].inputs,
-      ...questions[5].inputs,
-    ];
-    // Keep track of all of the results in an array
-    let results = [];
+    // Put all of the individual question answers as an array
+    const fQuestion = map(questions[0].inputs, f => f.value);
+    const sQuestion = map(questions[1].inputs, s => s.value);
+    const tQuestion = map(questions[2].inputs, t => t.value);
+    const foQuestion = map(questions[3].inputs, fo => fo.value);
+    const fiQuestion = map(questions[4].inputs, fi => fi.value);
+    const siQuestion = map(questions[5].inputs, si => si.value);
+    // Make an array of arrays from all of the individual question answers
+    const totalQuestionAnswers = [fQuestion, sQuestion, tQuestion, foQuestion, fiQuestion, siQuestion];
     // Reformat the results array to include the title
     let endResults = [];
-    let groups = [];
-    let count = 0;
+    const results = totalQuestionAnswers.map(function(questions, index) {
+      return mash(questions, index);
+    });
 
-    // Need to do a while loop to loop through the total quesiton answers supplied and make
-    // sure we grab the right ones from the number selected
-    do {
-      count++;
-      for (let i = 0; i < totalQuestionAnswers.length; i++) {
-        if (count % selectedNumber === 0 && (i + 1) % selectedNumber === 0) {
-          // Need to keep track of the groups and make sure the same one from the same group is not selected
-          if (!groups.includes(totalQuestionAnswers[i].group)) {
-            results.push(totalQuestionAnswers[i]);
-            groups.push(totalQuestionAnswers[i].group);
-            break;
-          }
+    function mash(questions, groupIndex) {
+      const q = questions.map(function(g, i) {
+        return findMultiple(groupIndex, i);
+      });
+
+      let lowestIndex = 0;
+      for (let i = 1; i < q.length; i++) {
+        if (q[i] < q[lowestIndex]) {
+          lowestIndex = i;
         }
       }
-    } while (results.length < 6);
 
+      return questions[lowestIndex];
+    }
+
+    function findMultiple(groupIndex, index) {
+      let x = 4 * groupIndex + index + 1; //4 = number of questions  per group
+      while (x % selectedNumber !== 0 && x <= 140) {
+        //140 = rows X cols (5 x 28)
+        x += 28; //28 = the difference between rows for 7 groups
+      }
+      return x;
+    }
+    // Format the end results with a value and title as an object
     endResults = map(questions, q => {
       let finalResult = {};
-      forEach(results, r => {
-        if (r.group === q._id) {
+      forEach(results, (r, i) => {
+        if (i === q._id - 1) {
           finalResult = {
-            ...r,
+            value: r,
             title: q.title,
           };
         }

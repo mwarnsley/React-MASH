@@ -55,10 +55,11 @@ class App extends Component {
     const totalQuestionAnswers = [fQuestion, sQuestion, tQuestion, foQuestion, fiQuestion, siQuestion];
     // Reformat the results array to include the title
     let endResults = [];
+    // returning the results by looping through the total questions array and returning the mash function
     const results = totalQuestionAnswers.map(function(questions, index) {
       return mash(questions, index);
     });
-
+    // looping through the qestions and return the findmultiple function that grabs the correct item condencing it
     function mash(questions, groupIndex) {
       const q = questions.map(function(g, i) {
         return findMultiple(groupIndex, i);
@@ -73,7 +74,7 @@ class App extends Component {
 
       return questions[lowestIndex];
     }
-
+    // Looping through and getting the difference between the rows and grabbing the correct group item
     function findMultiple(groupIndex, index) {
       let x = 4 * groupIndex + index + 1; //4 = number of questions  per group
       while (x % selectedNumber !== 0 && x <= 140) {

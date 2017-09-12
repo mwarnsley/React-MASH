@@ -45,20 +45,6 @@
   margin: 50px auto 25px auto;
   width: 350px; }
 
-.result-list-container {
-  margin: 50px 0;
-  width: 100%; }
-  .result-list-container .well {
-    background: #4b0082; }
-  .result-list-container .panel {
-    color: #4b0082; }
-  .result-list-container .result-header {
-    font-size: 30px;
-    font-weight: bold; }
-  .result-list-container .result-value {
-    font-size: 20px;
-    font-weight: 100; }
-
 .list-container {
   border: 1px solid #b2b2b2;
   border-radius: 5px;
@@ -104,3 +90,29 @@
 .select-error {
   color: red;
   margin-top: 10px; }
+
+.result-list-container {
+  margin: 50px 0;
+  width: 100%; }
+  .result-list-container .well {
+    background: #4b0082; }
+  .result-list-container .panel {
+    color: #4b0082; }
+  .result-list-container .result-header {
+    font-size: 30px;
+    font-weight: bold; }
+  .result-list-container .result-value {
+    font-size: 20px;
+    font-weight: 100; }
+  .result-list-container .crushes {
+    color: #ff1493; }
+  .result-list-container .careers {
+    color: #32cd32; }
+  .result-list-container .pets {
+    color: #00bfff; }
+  .result-list-container .vehicles {
+    color: #ff7f50; }
+  .result-list-container .kids {
+    color: #ffff00; }
+  .result-list-container .honeymoon {
+    color: #fa8072; }

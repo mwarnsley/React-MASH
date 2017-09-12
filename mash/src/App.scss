@@ -56,25 +56,6 @@
   margin: 50px auto 25px auto;
   width: 350px;
 }
-.result-list-container {
-  margin: 50px 0;
-  width: 100%;
-
-  .well {
-    background: #4b0082;
-  }
-  .panel {
-    color: #4b0082;
-  }
-  .result-header {
-    font-size: 30px;
-    font-weight: bold;
-  }
-  .result-value {
-    font-size: 20px;
-    font-weight: 100;
-  }
-}
 .list-container {
   border: 1px solid #b2b2b2;
   border-radius: 5px;
@@ -122,4 +103,29 @@
 .select-error {
   color: red;
   margin-top: 10px;
+}
+.result-list-container {
+  margin: 50px 0;
+  width: 100%;
+
+  .well {
+    background: #4b0082;
+  }
+  .panel {
+    color: #4b0082;
+  }
+  .result-header {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  .result-value {
+    font-size: 20px;
+    font-weight: 100;
+  }
+  $colors: (crushes: #ff1493, careers: #32cd32, pets: #00bfff, vehicles: #ff7f50, kids: #ffff00, honeymoon: #fa8072);
+  @each $name, $color in $colors {
+    .#{$name} {
+      color: $color;
+    }
+  }
 }

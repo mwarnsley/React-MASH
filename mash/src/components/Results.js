@@ -9,7 +9,7 @@ const Results = props => {
       <Col key={i} xs={12} md={3}>
         <Well>
           <Panel>
-            <h3 className="result-header">{r.title}</h3>
+            <h3 className={r.title.toLowerCase() + ' result-header'}>{r.title}</h3>
             <p className="result-value">{r.value}</p>
           </Panel>
         </Well>

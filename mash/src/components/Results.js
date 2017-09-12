@@ -2,8 +2,7 @@ import React from 'react';
 import {map} from 'lodash';
 import {Grid, Row, Col, Panel, Well} from 'react-bootstrap';
 
-const Results = props => {
-  const {results} = props;
+const Results = ({results}) => {
   const displayResults = map(results, (r, i) => {
     return (
       <Col key={i} xs={12} md={3}>

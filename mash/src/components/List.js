@@ -1,8 +1,7 @@
 import React from 'react';
 import {FormControl} from 'react-bootstrap';
 
-const List = props => {
-  const {number, onChange, id, value} = props;
+const List = ({number, onChange, id, value}) => {
   const changeInput = e => {
     onChange(e);
   };

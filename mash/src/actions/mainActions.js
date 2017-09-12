@@ -28,3 +28,10 @@ export function calculateResults(results) {
     payload: results,
   };
 }
+
+// Action to restart the game settings
+export function restartGame() {
+  return {
+    type: 'RESTART_GAME',
+  };
+}

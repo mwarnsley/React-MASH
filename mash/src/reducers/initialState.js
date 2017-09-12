@@ -2,6 +2,7 @@
 export default {
   storedQuestionState: ['Crushes', 'Careers', 'Pets', 'Vehicles', 'Kids', 'Honeymoon', 'Number', 'Results'],
   questionState: 'Crushes',
+  questionStateIndex: 1,
   questions: [
     {
       _id: 1,

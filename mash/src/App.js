@@ -7,7 +7,13 @@ import Header from './components/Header';
 import ListContainer from './components/ListContainer';
 import Button from './components/Button';
 import Results from './components/Results';
-import {switchQuestionState, setInputValue, setSelectNumber, calculateResults} from './actions/mainActions';
+import {
+  switchQuestionState,
+  setInputValue,
+  setSelectNumber,
+  calculateResults,
+  restartGame,
+} from './actions/mainActions';
 import './App.css';
 
 class App extends Component {
@@ -114,6 +120,9 @@ class App extends Component {
       dispatch(calculateResults(enterResults));
       dispatch(switchQuestionState());
       return;
+    } else if (questionState === 'Results') {
+      dispatch(restartGame());
+      return;
     }
     dispatch(switchQuestionState());
   }
@@ -169,7 +178,12 @@ class App extends Component {
   }
   render() {
     const {storedQuestionState, questionState} = this.props;
-    const btnText = storedQuestionState[storedQuestionState.length - 2] === questionState ? 'Results' : 'Next';
+    let btnText = 'Next';
+    if (storedQuestionState[storedQuestionState.length - 2] === questionState) {
+      btnText = 'Results';
+    } else if (questionState === 'Results') {
+      btnText = 'Restart';
+    }
     const appContainerClass = questionState === 'Results' ? 'result-list-container' : 'app-list-container';
     return (
       <div className="App">
@@ -178,14 +192,12 @@ class App extends Component {
         </div>
         <div className={appContainerClass}>{this.renderListContainer()}</div>
         <div className="btn-container">
-          {questionState !== 'Results' ? (
-            <Button
-              btnText={btnText}
-              type="button"
-              onClick={this.nextList}
-              classes="btn btn-default btn-warning btn-next"
-            />
-          ) : null}
+          <Button
+            btnText={btnText}
+            type="button"
+            onClick={this.nextList}
+            classes="btn btn-default btn-warning btn-next"
+          />
         </div>
       </div>
     );
